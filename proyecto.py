@@ -18,7 +18,5 @@ st.title("Catálogo sísmico 1960-2021")
 df_cat = pd.read_excel(r'https://www.datosabiertos.gob.pe/sites/default/files/Catalogo1960_2021.xlsx', header= 0) 
 st.write(df_cat)
 
-option = st.selectbox(
- '¿Si desea más información puede contactarnos mediante las siguientes opciones?',
- ('Email', 'Teléfono', 'Whatsapp', 'Instagram')
+option = st.selectbox('¿Si desea más información puede contactarnos mediante las siguientes opciones?',('Email', 'Teléfono', 'Whatsapp', 'Instagram'))
 st.write('Seleccionó:', option)
