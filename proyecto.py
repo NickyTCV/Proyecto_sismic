@@ -22,3 +22,8 @@ st.write("Esta base de datos sísmicos contiene todos los parámetros que caract
 
 option = st.selectbox('¿Si desea más información puede contactarnos mediante las siguientes opciones?',('Email', 'Teléfono', 'Whatsapp', 'Instagram'))
 st.write('Seleccionó:', option)
+
+st.header("Histogramas de datos sísmicos:")
+for i in range(6,15):
+    fig = px.histogram(df_cat, df_cat.columns[i])
+    st.plotly_chart(fig, use_container_width=True)
