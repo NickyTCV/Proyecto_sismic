@@ -1,18 +1,10 @@
+#$ pip install streamlit --upgrade 
 import streamlit as st
 import pandas as pd
+import numpy as np
 import gdown
-
-import pip
-pip.main(["install", "openpyxl"])
-pip.main(["install", "pandas"])
-import plotly.figure_factory as ff
-pip.main(["install", "matplotlib"])
-import matplotlib.pyplot as plt
-import pandas as pd
-import streamlit as st
-import plotly.express as px
-import plotly.figure_factory as ff
-import scipy
+import urllib.request
+from streamlit_option_menu import option_menu
 
 with st.sidebar: 
     st.markdown("###")
@@ -29,6 +21,31 @@ if selected == 'Inicio':
   st.markdown("<h1 style ='text-align: center'>Titulo:</h1>", unsafe_allow_html=True)
   st.markdown("---")
   st.header("Dataset")
+  
+  @st.experimental_memo
+  def download_data():
+        url ="https://raw.githubusercontent.com/heidi1904/programaci-n/main/Catalogo.xlsx%20-%20Catalogo1960_2021.csv"
+        filename ="Catalogo.xlsx%20-%20Catalogo1960_2021.csv"
+        urllib.request.urlretrieve(url,filename)
+        df = pd.read_csv('Catalogo.xlsx%20-%20Catalogo1960_2021.csv')
+        return df
+  download_data()
+  st.dataframe(download_data())
+    
+if selected == 'Reporte':
+    st.markdown("<h1 style ='text-align: center'>Reporte:</h1>", unsafe_allow_html=True)
+    
+import pip
+pip.main(["install", "openpyxl"])
+pip.main(["install", "pandas"])
+import plotly.figure_factory as ff
+pip.main(["install", "matplotlib"])
+import matplotlib.pyplot as plt
+import pandas as pd
+import streamlit as st
+import plotly.express as px
+import plotly.figure_factory as ff
+import scipy
 
 st.title("Catálogo sísmico 1960-2021")
 df_cat = pd.read_excel(r'https://www.datosabiertos.gob.pe/sites/default/files/Catalogo1960_2021.xlsx', header= 0) 
