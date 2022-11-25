@@ -24,6 +24,6 @@ option = st.selectbox('¿Si desea más información puede contactarnos mediante 
 st.write('Seleccionó:', option)
 
 st.header("Histogramas de datos sísmicos:")
-for i in range(6,15):
+for i in range(6,8):
     fig = px.histogram(df_cat, df_cat.columns[i])
     st.plotly_chart(fig, use_container_width=True)
