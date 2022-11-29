@@ -9,8 +9,6 @@ pip.main(["install", "pandas"])
 import plotly.figure_factory as ff
 pip.main(["install", "matplotlib"])
 import matplotlib.pyplot as plt
-import pandas as pd
-import streamlit as st
 import plotly.express as px
 import plotly.figure_factory as ff
 import scipy
@@ -28,3 +26,4 @@ st.header("Histogramas de datos sísmicos:")
 for i in range(5,7):
     fig = px.histogram(df_cat, df_cat.columns[i])
     st.plotly_chart(fig, use_container_width=True)
+    
