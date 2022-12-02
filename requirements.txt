@@ -2,3 +2,4 @@ gdown
 matplotlib
 plotly
 scipy
+streamlit-option-menu
